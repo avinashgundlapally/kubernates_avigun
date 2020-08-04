@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: postexpose
+
+spec:
+        containers:
+                - image: nginx
+                  name: portexportcont
+                  ports:
+                          - containerPort: 8080         
+

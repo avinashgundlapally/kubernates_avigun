@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: livenessdeploy
+  labels:
+    livenesstest: yep
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      liveness: yep
+  template:
+    metadata:
+      name: livenesspod
+      labels:
+        liveness: yep
+
+    spec:
+      containers:
+      - image: ubuntu
+        name: livenesscontainer
+        tty: true
+        livenessProbe:
+          exec:
+            command: ["service","nginx","status"]
+          initialDelaySeconds: 60
+          failureThreshold: 5
+          periodSeconds: 15

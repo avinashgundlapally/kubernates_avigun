@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kplabs-service
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: nginx
+
+  template:
+    metadata:
+      name: nginxpod
+      labels:
+        env: nginx
+
+    spec:
+      containers:
+      - image: nginx
+        name: nginxcont
+
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: specific-pod
+
+spec:
+  containers:
+  - image: nginx
+    name: specific-container
+  nodeSelector:
+    disk: iops

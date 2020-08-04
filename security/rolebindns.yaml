@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+
+kind: RoleBinding
+
+metadata:
+  name: rolebind-ns
+  namespace: testteam1
+
+roleRef:
+  apiGroup: rbac.authorization.k8s.io 
+  kind: Role
+  name: nsrole 
+
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: avigun
+

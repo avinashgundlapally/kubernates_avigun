@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+
+kind: DaemonSet
+
+metadata:
+  name: kplabs-daemonset
+
+spec:
+  selector:
+    matchLabels:
+      app: silly
+  template:
+    metadata:
+      labels:
+        app: silly
+    spec:
+      containers:
+      - image: nginx
+        name:  cont
+
+        #restartPolicy: Never

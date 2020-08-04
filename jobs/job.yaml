@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: firstdjb
+  labels:
+    why: dontknow
+
+spec:
+  template:
+    spec:
+      containers:
+      - image: nginx
+        name: jobcontainer
+        command: ["/bin/bash"]
+        args: ["-c","echo helloworld"]
+      restartPolicy: Never

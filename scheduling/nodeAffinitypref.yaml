@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+
+metadata: 
+  name: podname
+
+spec:
+  containers:
+  - image: nginx
+    name: podcont
+
+  affinity: 
+    nodeAffinity: 
+      preferredDuringSchedulingIgnoredDuringExecution: 
+      - weight: 1
+        preference: 
+          matchExpressions:
+          - key: some
+            operator: In
+            values:
+            - thing

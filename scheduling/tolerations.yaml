@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  name: toleration-deploy
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: testing
+
+  template:
+    metadata:
+      labels:
+        app: testing
+
+    spec:
+      containers:
+      - image: nginx
+        name: testingnginx
+
+      tolerations:
+      - key: "key"
+        operator: "Exists"
+        effect: "NoSchedule"

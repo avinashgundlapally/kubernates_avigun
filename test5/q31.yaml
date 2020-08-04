@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: workerone-pod
+
+spec:
+  containers:
+  - image: nginx
+    name: working1
+
+  nodeSelector:
+    worker: one

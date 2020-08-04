@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollingdeployment
+  labels:
+    crazy: maybe
+    
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 60%
+      maxUnavailable: 70%
+  replicas: 7
+  selector:
+    matchLabels:
+      crazy: sure
+  template:
+    metadata:
+      name: rollingpod
+      labels:
+        crazy: sure
+    spec:
+      containers:
+      - image: nginx:1.19.1
+        name: rollingcontainer

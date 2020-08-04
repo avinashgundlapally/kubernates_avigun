@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: upgradedeploy
+  labels:
+    why: upgradeDeploy
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginxupgrade
+
+  template:
+    metadata:
+      name: upgradepod
+      labels:
+        app: nginxupgrade
+    spec:
+      containers:
+      - image: nginx2:alpine
+        name: upgradecontainer

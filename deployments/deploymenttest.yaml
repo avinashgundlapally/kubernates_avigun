@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstdeployment
+  labels:
+    tier: backen
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      tier: backendApp
+  template:
+    metadata:
+      name: deployPod
+      labels:
+        tier: backendApp
+    spec:
+      containers:
+      - image: nginx:1.19.1
+        name: deploycontainers
+
+

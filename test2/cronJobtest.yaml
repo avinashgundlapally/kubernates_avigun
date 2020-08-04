@@ -1,0 +1,22 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+
+metadata:
+  name: cronjobtest
+
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: crazypodcron
+
+        spec:
+          containers:
+          - image: nginx
+            name: croncontainer
+            command: ["/bin/bash","-c","echo hello world"]
+
+          restartPolicy: OnFailure 
+

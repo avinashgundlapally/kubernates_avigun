@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: testservice
+
+subsets:
+- addresses: 
+  - ip: 10.244.0.87
+  ports:
+  - port: 80

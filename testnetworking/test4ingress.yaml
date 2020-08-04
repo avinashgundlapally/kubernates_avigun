@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1 
+kind: Ingress
+
+metadata:
+  name: single-ingress
+
+spec:
+  rules: 
+  - http: 
+      paths: 
+      - backend: 
+          serviceName: single-service 
+          servicePort: 8080

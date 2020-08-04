@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjobtest
+
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    metadata:
+      name: cronpod
+    spec:
+      template: 
+        spec:
+          containers:
+          - image: nginx
+            name: croncont
+            command: ["/bin/bash"]
+            args: ["-c" , "echo oh my god..!"]
+
+          restartPolicy: OnFailure 

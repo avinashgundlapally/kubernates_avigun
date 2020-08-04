@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod3
+
+spec:
+  containers:
+  - image: busybox
+    name: container3
+    args: ["sleep","500"]

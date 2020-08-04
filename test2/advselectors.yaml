@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: advdeployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: advpod
+
+  template:
+    metadata:
+      name: advancepod
+      labels: 
+        app: advpod
+
+    spec:
+      containers:
+      - image: nginx
+        name: advcont
+
+      nodeSelector:
+        disk: ssd
+
+
